@@ -24,20 +24,8 @@
 | `TOKEN`      | 可选       | 为整个应用设置一个访问密码。设置后，访问主页或各工具页面都需要在URL后添加 `?token=您的密码` | `my-secret-password-123`                 |
 | `ICO_URL`    | 可选       | 自定义网站的 favicon 图标地址。                       | `https://example.com/favicon.ico`                               |
 | `IMG_URL`    | 可选       | 自定义主页和Socks5页面的背景图片地址。                 | `https://images.unsplash.com/photo-1513542789411-b6a5abb4c291` |
-| `BEIAN_HTML` | 可选       | 自定义所有页面底部的页脚HTML内容，例如备案信息或版权声明。 | `见下文示例` |
+| `BEIAN_HTML` | 可选       | 自定义所有页面底部的页脚HTML内容，例如备案信息或版权声明。 | 见 `config.php` 中示例 |
 | `URL302`     | 可选       | 设置一个全局302跳转地址。一旦设置，所有访问都会被重定向到此URL，可用于临时下线或域名迁移。     | `https://new-domain.com`              |
-
-```html
-/* BEIAN_HTML 变量示例值 */
-<p>
-    <a href="./">© 2025 CF反代检测工具集</a> | 基于 CF Workers 构建 |
-    <a href="https://github.com/cmliu" rel="noopener noreferrer">原作者 CMliu</a> |
-    <a href="https://github.com/yutian81" rel="noopener noreferrer">整合 Yutian81</a> |
-    <a href="https://blog.811520.xyz" rel="noopener noreferrer">QingYun Blog</a>
-</p>
-```
-
-- 绑定自定义域名
 
 ## 📚 API 调用指南
 
