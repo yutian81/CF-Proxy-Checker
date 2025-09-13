@@ -29,7 +29,7 @@
 
 ## 📚 API 调用指南
 
-所有 API 的基础路径都是您的 Worker 域名，例如：`https://your-worker.your-subdomain.workers.dev`
+> **所有 API 的基础路径都基于根地址，如 `https://your-subdomain.serv00.net`**
 
 ### 1. ProxyIP 模块
 
@@ -65,7 +65,7 @@
 #### 检查代理
 - **路径**: `/socks5/check`
 - **方法**: `GET`
-- **参数**: `proxy` (必须) - 完整的代理 URL，支持 `socks5://` 和 `http://` 协议。
+- **参数**: `proxy` (必须) - 完整的代理 URL，支持 `socks5://` 和 `http://` 协议。此参数也接受 `socks5` 或 `http` 作为别名。
 - **示例**: `GET /socks5/check?proxy=socks5://user:pass@1.2.3.4:1080`
 - **响应**: 返回代理出口 IP 的详细地理位置和 ASN 信息。
     
@@ -85,8 +85,8 @@
 - **路径**: `/nat64/check` 
 - **方法**: `GET`
 - **参数**:
-    - `nat64` (可选) - 自定义的 DNS64 服务器或 NAT64 前缀。默认为 `dns64.cmliussss.net`。
-    - `host` (可选) - 用于测试的目标主机。默认为 `cf.hw.090227.xyz`。  
+    - `nat64` 或 `dns64` (可选) - 自定义的 DNS64 服务器或 NAT64 前缀。代码会优先使用 dns64 参数, 默认为 `dns64.cmliussss.net`。
+    - `host` (可选) - 用于测试的目标主机。默认为 `cf.hw.090227.xyz`。
 - **示例**: `GET /nat64/check?nat64=2001:67c:2960:6464::/96`
 - **响应**: 返回检测结果，包括合成的 IPv6 地址、NAT64 前缀以及 `/cdn-cgi/trace` 的信息。
     
