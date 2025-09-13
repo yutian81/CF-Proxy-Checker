@@ -1,0 +1,10 @@
+RewriteEngine On
+
+RewriteRule ^proxyip/(check|resolve|ip-info)$ proxyip.php [L,QSA]
+RewriteRule ^proxyip/?$ proxyip.php [L,QSA]
+
+RewriteRule ^socks5/(check|ip-info)$ socks5.php [L,QSA]
+RewriteRule ^socks5/?$ socks5.php [L,QSA]
+
+RewriteRule ^nat64/(check|ip-info)$ nat64.php [L,QSA]
+RewriteRule ^nat64/?$ nat64.php [L,QSA]
