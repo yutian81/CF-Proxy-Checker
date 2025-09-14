@@ -9,6 +9,10 @@ $网站图标_HTML = htmlspecialchars($网站图标, ENT_QUOTES);
 $永久TOKEN = defined('TOKEN') && TOKEN ? TOKEN : null;
 $HEAD_FONTS_HTML = defined('HEAD_FONTS') ? HEAD_FONTS : '';
 $BEIAN_HTML = defined('BEIAN') && BEIAN ? BEIAN : '© 2025 CF反代检测工具集 By cmliu | Yutian81';
+$IMG = defined('IMG') ? IMG : null;
+$IMG_CSS = (!empty($IMG) && $IMG !== '')
+    ? 'background-image: url("' . htmlspecialchars($IMG, ENT_QUOTES, 'UTF-8') . '");'
+    : 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);';
 
 // --- 2. 核心工具函数 ---
 
