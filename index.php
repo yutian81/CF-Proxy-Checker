@@ -8,6 +8,10 @@ $网站图标 = defined('ICO') && ICO ? ICO : 'https://cf-assets.www.cloudflare.
 $网站图标_HTML = htmlspecialchars($网站图标, ENT_QUOTES);
 $HEAD_FONTS_HTML = defined('HEAD_FONTS') ? HEAD_FONTS : '';
 $BEIAN_HTML = defined('BEIAN') && BEIAN ? BEIAN : '© 2025 CF反代检测工具集 By cmliu | Yutian81';
+$IMG = defined('IMG') ? IMG : null;
+$IMG_CSS = (!empty($IMG) && $IMG !== '')
+    ? 'background-image: url("' . htmlspecialchars($IMG, ENT_QUOTES, 'UTF-8') . '");'
+    : 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);';
 ?>  
 
 <!DOCTYPE html>
@@ -52,25 +56,13 @@ $BEIAN_HTML = defined('BEIAN') && BEIAN ? BEIAN : '© 2025 CF反代检测工具�
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Segoe UI Emoji', 'Apple Color Emoji', sans-serif;
             line-height: 1.6;
             color: var(--text-primary);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            <?php echo $IMG_CSS; ?>
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
             padding: 20px;
         }
-        
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1513542789411-b6a5abb4c291?q=80&w=2940') center/cover no-repeat;
-            filter: blur(8px) brightness(0.8);
-            z-index: -1;
-        }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
