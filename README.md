@@ -22,9 +22,9 @@
 | **变量名**    | **是否必须** | **说明**                                          | **示例值**                                                                |
 | ------------ | ----------- | ------------------------------------------------- | ------------------------------------------------------------------------- |
 | `TOKEN`      | 可选       | 为整个应用设置一个访问密码。设置后，访问主页或各工具页面都需要在URL后添加 `?token=您的密码` | `my-secret-password-123`                 |
-| `ICO_URL`    | 可选       | 自定义网站的 favicon 图标地址。                       | `https://example.com/favicon.ico`                               |
-| `IMG_URL`    | 可选       | 自定义主页和Socks5页面的背景图片地址。                 | `https://images.unsplash.com/photo-1513542789411-b6a5abb4c291` |
-| `BEIAN_HTML` | 可选       | 自定义所有页面底部的页脚HTML内容，例如备案信息或版权声明。 | 见 `config.php` 中示例 |
+| `ICO`    | 可选       | 自定义网站的 favicon 图标地址。                       | `https://example.com/favicon.ico`                               |
+| `IMG`    | 可选       | 自定义主页和Socks5页面的背景图片地址。                 | `https://images.unsplash.com/photo-1513542789411-b6a5abb4c291` |
+| `BEIAN` | 可选       | 自定义所有页面底部的页脚HTML内容，例如备案信息或版权声明。 | 见 `config.php` 中示例 |
 | `URL302`     | 可选       | 设置一个全局302跳转地址。一旦设置，所有访问都会被重定向到此URL，可用于临时下线或域名迁移。     | `https://new-domain.com`              |
 
 ## 📚 API 调用指南
