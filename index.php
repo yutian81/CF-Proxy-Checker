@@ -1,3 +1,15 @@
+<?php
+// PHP 版本：建议 7.4 或更高
+// 依赖扩展：curl, sockets (通常默认启用)
+require_once 'config.php';
+
+// 配置 & 环境变量读取 ---
+$网站图标 = defined('ICO') && ICO ? ICO : 'https://cf-assets.www.cloudflare.com/dzlvafdwdttg/19kSkLSfWtDcspvQI5pit4/c5630cf25d589a0de91978ca29486259/performance-acceleration-bolt.svg';
+$网站图标_HTML = htmlspecialchars($网站图标, ENT_QUOTES);
+$HEAD_FONTS_HTML = defined('HEAD_FONTS') ? HEAD_FONTS : '';
+$BEIAN_HTML = defined('BEIAN') && BEIAN ? BEIAN : '© 2025 CF反代检测工具集 By cmliu | Yutian81';
+?>  
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -5,10 +17,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="高性能，实时检测，专业分析，一站式检测各类反代CF服务的可用性，确保您的网络连接畅通无阻">
     <title>CF反代可用性检测工具集</title>
-    <link rel="icon" href="https://cf-assets.www.cloudflare.com/dzlvafdwdttg/19kSkLSfWtDcspvQI5pit4/c5630cf25d589a0de91978ca29486259/performance-acceleration-bolt.svg" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="<?php echo $网站图标_HTML; ?>" type="image/x-icon">
+    <?php echo $HEAD_FONTS_HTML; ?>
     <style>
         :root {
             --primary-color: #3498db;
@@ -294,7 +304,7 @@
             text-align: center;
             padding: 30px 20px 20px;
             color: rgba(255,255,255,0.85);
-            font-size: 15px;
+            font-size: 14px;
             margin-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.15);
             backdrop-filter: blur(5px);
@@ -496,11 +506,7 @@
         </div>
         
         <div class="footer">
-            <p>© 2025 网络代理检测工具集 | 基于 PHP 构建 |
-                <a href="https://github.com/cmliu">原作者 CMliu</a> |
-                <a href="https://github.com/yutian81">修改 Yutian81</a> |
-                <a href="https://blog.811520.xyz">QingYun Blog</a>
-            </p>
+            <?php echo $BEIAN_HTML; ?>
         </div>
     </div>
 
