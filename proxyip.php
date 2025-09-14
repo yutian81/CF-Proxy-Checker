@@ -10,6 +10,10 @@ $HEAD_FONTS_HTML = defined('HEAD_FONTS') ? HEAD_FONTS : '';
 $BEIAN_HTML = defined('BEIAN') && BEIAN ? BEIAN : '© 2025 CF反代检测工具集 By cmliu | Yutian81';
 $永久TOKEN = defined('TOKEN') && TOKEN ? TOKEN : null;
 $URL302 = defined('URL302') ? URL302 : null;
+$IMG = defined('IMG') ? IMG : null;
+$IMG_CSS = (!empty($IMG) && $IMG !== '')
+    ? 'background-image: url("' . htmlspecialchars($IMG, ENT_QUOTES, 'UTF-8') . '");'
+    : 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);';
 
 // --- 2. 核心工具函数 ---
 function isExcludedIP($ip) {
