@@ -1,7 +1,7 @@
 # CF-Proxy-Checker
 这是一个部署在 PHP 服务器上的高性能、多功能代理检测套件。它整合了多个强大的网络检测工具，提供统一的网页界面和标准化的API接口
 
-**从 cm 的 proxyip、socks5、nat64 反代检测整合而来**
+**从 cm 的 [proxyip](https://github.com/cmliu/CF-Workers-CheckProxyIP)、[socks5](https://github.com/cmliu/CF-Workers-CheckSocks5)、[nat64](https://github.com/cmliu/CF-Workers-CheckNAT64) 反代检测整合而来**
 
 ----
 
