@@ -1,25 +1,29 @@
 <?php
 // PHP 版本：建议 7.4 或更高
 // 依赖扩展：curl, sockets (通常默认启用)
+ini_set('display_errors', 0);
+error_reporting(0);
 require_once 'config.php';
+require_once 'functions.php';
 
-// --- 1. 读取和配置全局变量 ---
+// --- 1. 读取和配置环境变量 ---
 $网站图标 = defined('ICO') && ICO ? ICO : 'https://cf-assets.www.cloudflare.com/dzlvafdwdttg/19kSkLSfWtDcspvQI5pit4/c5630cf25d589a0de91978ca29486259/performance-acceleration-bolt.svg';
 $网站图标_HTML = htmlspecialchars($网站图标, ENT_QUOTES);
-$永久TOKEN = defined('TOKEN') && TOKEN ? TOKEN : null;
 $HEAD_FONTS_HTML = defined('HEAD_FONTS') ? HEAD_FONTS : '';
 $BEIAN_HTML = defined('BEIAN') && BEIAN ? BEIAN : '© 2025 CF反代检测工具集 By cmliu | Yutian81';
-$IMG = defined('IMG') ? IMG : null;
-$IMG_CSS = (!empty($IMG) && $IMG !== '')
-    ? 'background-image: url("' . htmlspecialchars($IMG, ENT_QUOTES, 'UTF-8') . '");'
-    : 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);';
-
-// --- 2. 核心工具函数 ---
-
-function 双重哈希($文本) {
-    return strtolower(md5(substr(md5($文本), 7, 20)));
+$永久TOKEN = defined('TOKEN') && TOKEN ? TOKEN : null;
+$URL302 = defined('URL302') ? URL302 : null;
+// 随机背景图，须在config.php中将IMG变量设为图片数组
+$IMG_CSS = 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);';
+if (defined('IMG') && IMG) {
+    $imgs = 整理(IMG);
+    if (!empty($imgs)) {
+        $img_url = $imgs[array_rand($imgs)];
+        $IMG_CSS = 'background-image: url("' . htmlspecialchars($img_url, ENT_QUOTES, 'UTF-8') . '");';
+    }
 }
 
+// --- 2. 核心工具函数 ---
 function isIPv6($str) {
     return filter_var($str, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
 }
@@ -229,7 +233,15 @@ if (preg_match('#/nat64/check#', $path)) {
     exit;
   
 } else {
-    require_once 'nat64_template.php';
+    // 其他所有 /nat64/... 的请求，都视为页面请求
+    if ($永久TOKEN && ($永久TOKEN !== $临时TOKEN)) {
+        require_once 'nginx_template.php';
+    } elseif ($URL302) {
+        header("Location: $URL302", true, 302);
+        exit;
+    } else {
+        require_once 'nat64_template.php';
+    }
 }
 
 ?>
