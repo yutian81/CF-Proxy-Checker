@@ -272,7 +272,10 @@ function resolveDomain($domain) {
     $domain = explode(':', $domain)[0];
     try {
         $mh = curl_multi_init();
-        $urls = ['A' => "https://1.1.1.1/dns-query?name=" . urlencode($domain) . "&type=A", 'AAAA' => "https://1.1.1.1/dns-query?name=" . urlencode($domain) . "&type=AAAA"];
+        $urls = [
+            'A' => "https://1.1.1.1/dns-query?name=" . urlencode($domain) . "&type=A",
+            'AAAA' => "https://1.1.1.1/dns-query?name=" . urlencode($domain) . "&type=AAAA"
+        ];
         $chs = [];
         foreach ($urls as $type => $url) {
             $ch = curl_init();
