@@ -1,18 +1,27 @@
 <?php
 // PHP 版本：建议 7.4 或更高
 // 依赖扩展：curl, sockets (通常默认启用)
+ini_set('display_errors', 0);
+error_reporting(0);
 require_once 'config.php';
+require_once 'functions.php';
 
-// 配置 & 环境变量读取 ---
+// 读取和配置环境变量 ---
 $网站图标 = defined('ICO') && ICO ? ICO : 'https://cf-assets.www.cloudflare.com/dzlvafdwdttg/19kSkLSfWtDcspvQI5pit4/c5630cf25d589a0de91978ca29486259/performance-acceleration-bolt.svg';
 $网站图标_HTML = htmlspecialchars($网站图标, ENT_QUOTES);
 $HEAD_FONTS_HTML = defined('HEAD_FONTS') ? HEAD_FONTS : '';
 $BEIAN_HTML = defined('BEIAN') && BEIAN ? BEIAN : '© 2025 CF反代检测工具集 By cmliu | Yutian81';
-$IMG = defined('IMG') ? IMG : null;
-$IMG_CSS = (!empty($IMG) && $IMG !== '')
-    ? 'background-image: url("' . htmlspecialchars($IMG, ENT_QUOTES, 'UTF-8') . '");'
-    : 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);';
-?>  
+$URL302 = defined('URL302') ? URL302 : null;
+// 随机背景图，须在config.php中将IMG变量设为图片数组
+$IMG_CSS = 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);';
+if (defined('IMG') && IMG) {
+    $imgs = 整理(IMG);
+    if (!empty($imgs)) {
+        $img_url = $imgs[array_rand($imgs)];
+        $IMG_CSS = 'background-image: url("' . htmlspecialchars($img_url, ENT_QUOTES, 'UTF-8') . '");';
+    }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="zh-CN">
