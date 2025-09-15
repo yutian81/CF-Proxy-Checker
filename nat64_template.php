@@ -150,7 +150,7 @@
     </a>
     <div class="container">
         <div class="header">
-            <h1>🌐 DNS64/NAT64 检测</h1>
+            <h1>🔄 DNS64/NAT64 检测</h1>
             <p>检测DNS64作为NAT64的PROXYIP可用性</p>
         </div>
         <div class="form-group">
