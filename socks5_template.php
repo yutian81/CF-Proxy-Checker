@@ -177,7 +177,7 @@
     <div class="container">
         <div class="header">
             <div class="header-content">
-                <h1>🌐 代理检测工具</h1>
+                <h1>🔒 代理检测工具</h1>
                 <p>检测代理服务器的出入口信息 (SOCKS5 / HTTP)</p>
             </div>
             <div class="header-input">
