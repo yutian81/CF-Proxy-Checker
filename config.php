@@ -4,6 +4,7 @@
 define('ICO', 'https://cf-assets.www.cloudflare.com/dzlvafdwdttg/19kSkLSfWtDcspvQI5pit4/c5630cf25d589a0de91978ca29486259/performance-acceleration-bolt.svg');
 define('TOKEN', '');
 define('URL302', '');
+// 支持多张图片地址组成随机背景图，地址之间用,分割
 define('IMG', '');
 
 define('HEAD_FONTS', <<<'HTML'
