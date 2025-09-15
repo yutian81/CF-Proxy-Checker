@@ -378,12 +378,13 @@ if (preg_match('#/proxyip/check#', $path)) {
     if ($永久TOKEN && ($永久TOKEN !== $临时TOKEN)) {
         require_once 'nginx_template.php';
     } elseif ($URL302) {
-        $urls = 整理($URL302);
-        if (!empty($urls)) {
-            header("Location: " . $urls[array_rand($urls)], true, 302);
-            exit();
-        }
+        header("Location: $URL302", true, 302);
     } else {
+        $img_url = null;
+        if (defined('IMG') && IMG) {
+            $imgs = 整理(IMG);
+            $img_url = $imgs[array_rand($imgs)];
+        }
         require_once 'proxyip_template.php';
     }
 }
