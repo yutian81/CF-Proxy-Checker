@@ -513,7 +513,7 @@ if (defined('IMG') && IMG) {
 
     <div id="toast" class="toast"></div>
 
-    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // 工具卡片动画
