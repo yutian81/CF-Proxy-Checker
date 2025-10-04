@@ -372,13 +372,6 @@
         return;
       }
       
-      const currentTimestamp = calculateTimestamp();
-      if (currentTimestamp !== pageLoadTimestamp) {
-        showToast('页面 TOKEN 已过期，正在刷新...');
-        setTimeout(() => window.location.reload(), 1000);
-        return;
-      }
-      
       try { localStorage.setItem('lastProxyIP', proxyip); } catch (error) { console.log('保存历史记录失败:', error); }
       
       isChecking = true;
