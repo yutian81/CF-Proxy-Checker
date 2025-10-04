@@ -204,7 +204,7 @@
         <div class="footer"><?php echo $BEIAN_HTML; ?></div>
     </div>
       
-    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
     <script>
         const 临时TOKEN = '<?php echo $临时TOKEN_JS; ?>';
         let currentDomainInfo = null;
