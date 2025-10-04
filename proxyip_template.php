@@ -238,12 +238,12 @@
           </p>
           <h3 style="color: var(--text-primary); margin: 24px 0 16px;">📍 检查ProxyIP</h3>
           <div class="code-block">
-              <strong style="color: #68d391;">GET</strong> /proxyip/check?proxyip=<span class="highlight">YOUR_PROXY_IP</span>
+              <strong style="color: #68d391;">GET</strong> <?php echo $protocol; ?><?php echo $hostname; ?>/proxyip/check?proxyip=<span class="highlight">YOUR_PROXY_IP</span>
           </div>
       
           <h3 style="color: var(--text-primary); margin: 24px 0 16px;">💡 使用示例</h3>
           <div class="code-block">
-              curl "https://$hostname/proxyip/check?proxyip=1.2.3.4:443"
+              curl "<?php echo $protocol; ?><?php echo $hostname; ?>/proxyip/check?proxyip=1.2.3.4:443"
           </div>
 
           <h3 style="color: var(--text-primary); margin: 24px 0 16px;">🔗 响应Json格式</h3>
@@ -264,7 +264,7 @@
 
     <div id="toast" class="toast"></div>
 
-    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@twemoji/api@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
     <script>
     const 临时TOKEN = '<?php echo $临时TOKEN_JS; ?>';
     const SERVER_ADD = '<?php echo $SERVER_ADD_JS; ?>';
