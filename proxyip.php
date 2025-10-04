@@ -289,6 +289,7 @@ function resolveDomain($domain) {
 // --- 3. 主逻辑 & 路由 ---
 $path = strtolower(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH));
 
+$protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || ($_SERVER['SERVER_PORT'] ?? 80) == 443) ? "https://" : "http://";
 $hostname = $_SERVER['HTTP_HOST'] ?? 'localhost';
 $UA = $_SERVER['HTTP_USER_AGENT'] ?? 'null';
 $timestamp = ceil(time() / (60 * 31));
