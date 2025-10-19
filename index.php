@@ -4,7 +4,7 @@
 ini_set('display_errors', 0);
 error_reporting(0);
 require_once 'config.php';
-require_once 'functions.php';
+require_once 'function.php';
 
 // 读取和配置环境变量 ---
 $网站图标 = defined('ICO') && ICO ? ICO : 'https://cf-assets.www.cloudflare.com/dzlvafdwdttg/19kSkLSfWtDcspvQI5pit4/c5630cf25d589a0de91978ca29486259/performance-acceleration-bolt.svg';
